@@ -34,7 +34,10 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
+app.use(function(req,res, next){
+   res.locals.currentUser = req.user;
+   next();
+});
 
 
 // MONGOOSE/MODEL CONFIG
@@ -66,11 +69,12 @@ app.get("/",function(req, res){
 });
 //INDEX ROUTE
 app.get("/blogs",function(req, res){
+    
     Blog.find({}, function(err, blogs){
        if(err){
            console.log(err);
        }else{
-            res.render("index",{blogs: blogs});
+            res.render("index",{blogs: blogs, currentUser: req.user});
        }
     });
 });

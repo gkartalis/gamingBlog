@@ -1,7 +1,7 @@
 {
-  "name": "gaming blog",
+  "name": "gamingblog",
   "version": "1.0.0",
-  "description": "a super simple gaming blog",
+  "description": "a simple gaming blog",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

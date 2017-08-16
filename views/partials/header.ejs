@@ -12,11 +12,14 @@
                    <i class="game icon"></i>
                     Gaming Blog
                 </a>
-                
-                
-                <a href="/blogs/new" class="item">New Post</a>
+                <% if(!currentUser){ %>
                     <a href="/login" class="item right">Login</a>
                     <a href="/register" class="item">Sign Up!</a>
+                <% }else {    %>
+                    <a class="item right">Signed in as <%= currentUser.username %> </a>
                     <a href="/logout" class="item">Logout</a>
+                    <a href="/blogs/new" class="item">New Post</a>
+
+                <% } %>
             </div>
         </div>
