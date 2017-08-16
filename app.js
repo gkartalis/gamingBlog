@@ -162,7 +162,6 @@ app.post("/register", function(req, res){
 });
 
 app.get("/login", function(req, res){
-    console.log(req.body.username);
     res.render("login");
 });
 
@@ -185,7 +184,7 @@ function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
-    res.redirect("/")
+    res.redirect("/login")
 }
 
 app.listen(process.env.PORT,process.env.IP,function(){
